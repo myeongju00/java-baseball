@@ -6,14 +6,24 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class Game {
-    private static final int DIGITS = 3;
-    private static final String START_SENTENCE = "숫자 야구 게임을 시작합니다.";
-    private static final String RESTART = "1";
-    private static final String BALL_STR = "볼 ";
-    private static final String STRIKE_STR = "스트라이크 ";
-    private static final String NOTHING = "낫싱";
-    private static final String THREE_STRIKE_SENTENCE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
-    private static final String RESTART_OR_EXIT_SENTENCE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+    private final int DIGITS = 3;
+    private final String START_SENTENCE = "숫자 야구 게임을 시작합니다.";
+    private final String RESTART = "1";
+    private final String BALL_STR = "볼 ";
+    private final String STRIKE_STR = "스트라이크 ";
+    private final String NOTHING = "낫싱";
+    private final String THREE_STRIKE_SENTENCE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+    private final String RESTART_OR_EXIT_SENTENCE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+
+    private static Game instance = new Game();
+
+    private Game() {
+    }
+
+    public static Game getInstance() {
+        return instance;
+    }
+
 
     private boolean exitFlag = false;
     private List<Integer> computer = new ArrayList<>();
